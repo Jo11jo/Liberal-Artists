@@ -18,26 +18,7 @@ while True:
         print("To do: Create line chart.")
     elif choice == "3":
         print("To do: Load corresponding CBS data set.")
-        
-        population = input("""Which social groups do you want to compare?
-        1\tCompare age groups
-        2\tCompare marital status
-        3\tCompare gender
-        4\tExit program""")
-        
-        if population == "1":
-            print("To do: Create bar chart clustered by age group.")
-        elif population == "2":
-            print("To do: Create bar chart clustered by marital status.")
-        elif population == "3":
-            print("To do: Create bar chart clustered by gender.")
-        elif population == "4":
-            print("Thank you for using this program.")
-            break
-        else:
-            print("Choice not recognized. Try again.")
-        
-        
+        print("To do: Create clustered bar graph.")
     elif choice == "4":
         print("To do: Load corresponding CBS data set.")
         print("To do: Create map.")
