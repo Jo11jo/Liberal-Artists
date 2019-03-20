@@ -23,7 +23,7 @@ while True:
         1\tCompare age groups
         2\tCompare marital status
         3\tCompare gender
-        4\tExit program
+        4\tExit program""")
         
         if population == "1":
             print("To do: Create bar chart clustered by age group.")
