@@ -1,4 +1,4 @@
-print("To do: Load CBS data set.")
+
 
 while True:
     
@@ -11,12 +11,16 @@ while True:
     """)
     
     if choice == "1":
+        print("To do: Load corresponding CBS data set.")
         print("To do: Create line chart.")
     elif choice == "2":
+        print("To do: Load corresponding CBS data set.")
         print("To do: Create line chart.")
     elif choice == "3":
+        print("To do: Load corresponding CBS data set.")
         print("To do: Create clustered bar chart.")
     elif choice == "4":
+        print("To do: Load corresponding CBS data set.")
         print("To do: Create map.")
     elif choice == "5":
         print("Thank you for using this program.")
