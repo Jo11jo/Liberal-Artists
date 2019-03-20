@@ -1,4 +1,7 @@
-
+import pandas as pd
+import matplotlib.pyplot as plt
+import data_handling as dh
+import create_line_graph as lg
 
 while True:
     
@@ -11,8 +14,9 @@ while True:
     """)
     
     if choice == "1":
-        print("To do: Load corresponding CBS data set.")
-        print("To do: Create line chart.")
+        cbsdata = dh.load_data("Asylum NL.csv")
+        graph = lg.create_line_graph(cbsdata)
+        plt.show()
     elif choice == "2":
         print("To do: Load corresponding CBS data set.")
         print("To do: Create line chart.")
