@@ -25,8 +25,8 @@ def load_data_asylum(file):
 
 # importing data for different social groups from file "name"
 def load_data_groups(name):
-        with open("data_groups.csv", "r") as file:
-    df = pd.read_csv(file, sep=";")
+    with open("data_groups.csv", "r") as file:
+        df = pd.read_csv(file, sep=";")
 
     # create empty dataframe with columns corresponding to the categories
     columns=["Country of Origin", "Male", "Female", "Unmarried", "Married", "Widowed", \
