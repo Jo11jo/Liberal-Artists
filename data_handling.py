@@ -12,7 +12,7 @@ def load_data_asylum(file):
     data = pd.read_csv(file, sep=";")
 
     # Edits years to 4 digits and creates list of years
-    for i in range(3828):
+    for i in range(len(data):
         data.at[i, 'Perioden'] = data.iloc[i,2][0:4]
     
     # Takes the relevant columns
