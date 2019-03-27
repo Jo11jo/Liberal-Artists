@@ -18,7 +18,7 @@ while True:
         countries = [] 
         while True:
             print("Which countries would you like to view? Please choose one from this list:")
-            print("'Total Request','Syria','Iran','China'")
+            print("'Total Requests','Syria','Iran','China'")
             countries.append(input())
             print("Current countries:")
             print(countries)
