@@ -3,7 +3,10 @@ import matplotlib.pyplot as plt
 def create_line_graph(cbsdata,start_year,end_year,countries):
     
     # Dictionary that relates country to country code
-    country_dict = {'Total Requests':'T001059','Syria':'NAT9444','Iran':'NAT9351','China':'NAT9310'}
+    country_dict = {'Total Requests':'T001059','Syria':'NAT9444','Iran':'NAT9351',\
+                    'China':'NAT9310','Turkey':'NAT9458','Afghanistan':'NAT9278','Irak':'NAT9350',\
+                    'Eritrea':'NAT9326','Sudan':'NAT9437','Bosnia and Herzegovina':'NAT9298',\
+                    'Romania':'NAT9417'}
     
     for country in countries:     
         # Creates list of years and a copy
