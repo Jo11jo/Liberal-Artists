@@ -6,6 +6,10 @@ import create_line_graph as lg
 cbsdata_NL = dh.load_data_asylum_NL("Asylum NL.csv")
 cbsdata_int = dh.load_data_asylum_int("Asylum International.csv")
 
+all_countries = ['Total Requests','Syria','Iran','China','Turkey',\
+                         'Afghanistan','Irak','Eritrea','Sudan','Bosnia and Herzegovina','Romania']
+all_countries.sort()
+
 while True:  
     choice = input("""Welcome! What do you want to do?
     1\tView asylum requests (per country of origin) to the Netherlands over time.
@@ -18,9 +22,7 @@ while True:
     if choice == "1":
         
         countries = [] 
-        all_countries = ['Total Requests','Syria','Iran','China','Turkey',\
-                         'Afghanistan','Irak','Eritrea','Sudan','Bosnia and Herzegovina','Romania']
-        all_countries.sort()
+
         while True:
             print("Which countries would you like to view? Please choose one from this list:")
             for country in all_countries:
