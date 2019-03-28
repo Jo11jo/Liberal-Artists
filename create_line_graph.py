@@ -34,6 +34,12 @@ def line_graph_NL(cbsdata,start_year,end_year,countries):
         plt.plot(trimmed_years,asylum_requests,label=country)
     
     plt.xlabel('Years')
+    xint = []
+    locs, labels = plt.xticks()
+    for each in locs:
+        xint.append(int(each))
+    plt.xticks(xint)
+    plt.xlim(start_year, end_year)
     plt.ylabel('Asylum Requests')
     plt.title('Asylum Requests to the Netherlands')
     plt.legend()
@@ -73,6 +79,12 @@ def line_graph_int(cbsdata,start_year,end_year,countries):
         plt.plot(trimmed_years,asylum_requests,label=country)
     
     plt.xlabel('Years')
+    xint = []
+    locs, labels = plt.xticks()
+    for each in locs:
+        xint.append(int(each))
+    plt.xticks(xint)
+    plt.xlim(start_year, end_year)
     plt.ylabel('Asylum Requests (x1000)')
     plt.title('International Asylum Requests')
     plt.legend()
