@@ -1,24 +1,34 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Mar 20 14:16:45 2019
-
-@author: haenschen
-"""
 import pandas as pd
 
-# importing data for asylum requests over time
-def load_data_asylum(file):
+def load_data_asylum_NL(file):
     data = pd.read_csv(file, sep=";")
 
-    # Edits years to 4 digits and creates list of years
-    for i in range(len(data):
+    # Edits years to 4 digits
+    for i in range(len(data)):
         data.at[i, 'Perioden'] = data.iloc[i,2][0:4]
+        
+    # Trims whitespace    
+    data_obj = data.select_dtypes(['object'])
+    data[data_obj.columns] = data_obj.apply(lambda x: x.str.strip())
     
     # Takes the relevant columns
     result = data.loc[:,"Nationaliteit":"TotaalAsielverzoekenEnNareizigers_1"]
     return result
 
+def load_data_asylum_int(file):
+    data = pd.read_csv(file, sep=";")
+
+    # Edits years to 4 digits and creates list of years
+    for i in range(len(data)):
+        data.at[i, 'Perioden'] = data.iloc[i,2][0:4]
+    
+    # Trims whitespace    
+    data_obj = data.select_dtypes(['object'])
+    data[data_obj.columns] = data_obj.apply(lambda x: x.str.strip())
+
+    # Takes the relevant columns
+    result = data.loc[:,"Landen":"TotaalAsielverzoeken_1"]
+    return result
 
 # function to call data for different gender                   
 def load_data_gender(dataset):
