@@ -157,7 +157,7 @@ while True:
         # list of countries that will later be handed into the function defining desired countries to compare
         countries = [] 
         # all countries that are possible to compare
-        all_countries = ['Total Requests','Syria','Iran','China','Turkey',\
+        all_countries = ['Total Immigration','Syria','Iran','China','Turkey',\
                                  'Afghanistan','Irak','Eritrea','Sudan','Bosnia and Herzegovina','Romania']
         all_countries.sort()
 
