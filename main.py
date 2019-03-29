@@ -233,17 +233,17 @@ while True:
             #get according dataset
             gender_df = dh.load_data_gender('data_gender.csv')
             #plt graph along the list of countries chosen
-            bg.create_bargraph_demographics(gender_df, countries)
+            bg.create_bargraph_gender(gender_df, countries)
             plt.show()
 
         if 'age' in groups:
             age_df = dh.load_data_age('data_age.csv')
-            bg.create_bargraph_demographics(age_df, countries)
+            bg.create_bargraph_age(age_df, countries)
             plt.show()
 
         if 'marital status' in groups:
             mar_stat_df = dh.load_data_mar_status('data_mar_status.csv')
-            bg.create_bargraph_demographics(mar_stat_df, countries)
+            bg.create_bargraph_mar_status(mar_stat_df, countries)
             plt.show()
 
        
