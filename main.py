@@ -1,14 +1,10 @@
-import pandas as pd
 import matplotlib.pyplot as plt
 import data_handling as dh
 import create_line_graph as lg
+import create_bar_graph as bg
 
 cbsdata_NL = dh.load_data_asylum_NL("Asylum NL.csv")
 cbsdata_int = dh.load_data_asylum_int("Asylum International.csv")
-
-all_countries = ['Total Requests','Syria','Iran','China','Turkey',\
-                         'Afghanistan','Irak','Eritrea','Sudan','Bosnia and Herzegovina','Romania']
-all_countries.sort()
 
 
 while True:  
@@ -18,9 +14,12 @@ while True:
     3\tView migrating population demographics (to NL) per country of origin (gender, age, etc.).
     4\tExit program.
     """)
-    
+ 
+# Choice Asylum requests over time
     if choice == "1":
-        
+        all_countries = ['Total Requests','Syria','Iran','China','Turkey',\
+                         'Afghanistan','Irak','Eritrea','Sudan','Bosnia and Herzegovina','Romania']
+        all_countries.sort()
         countries = [] 
 
         while True:
@@ -84,7 +83,7 @@ while True:
         
         
         
-        
+# Coice EU comparison        
     elif choice == "2":
         
         countries = [] 
@@ -152,7 +151,8 @@ while True:
           
           
           
-          
+  
+  # choice Demographics across countries
     elif choice == "3":
         # list of countries that will later be handed into the function defining desired countries to compare
         countries = [] 
@@ -250,7 +250,8 @@ while True:
         
         
         
-        
+ 
+# choice end program
     elif choice == "4":
         print("Thank you for using this program.")
         break
