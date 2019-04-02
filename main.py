@@ -44,6 +44,8 @@ while True:
             if countries != all_countries:
                 choice = input("Would you like to add another country? (y/n) ")
                 print("\n")
+                while choice != 'y' and choice != 'n':
+                    choice = input("Please enter 'y' (yes) or 'n' (no).")
                 if choice == 'n':
                     break
             else:
@@ -113,6 +115,8 @@ while True:
             if countries != all_countries:
                 choice = input("Would you like to add another country? (y/n) ")
                 print("\n")
+                while choice != 'y' and choice != 'n':
+                    choice = input("Please enter 'y' (yes) or 'n' (no).")
                 if choice == 'n':
                     break
             else:
@@ -186,8 +190,9 @@ while True:
             if countries != all_countries:
                 choice = input("Would you like to add another country? (y/n) ")
                 print("\n")
+                while choice != 'y' and choice != 'n':
+                    choice = input("Please enter 'y' (yes) or 'n' (no).")
                 if choice == 'n':
-                    # break if no oher country should be chosen
                     break
                 elif choice != 'y' and choice != 'n':
                     print("This answer can't be recognized. Enter another country or just hit enter.")
@@ -220,6 +225,8 @@ while True:
             if groups != all_groups:
                 choice = input("Would you like to add another demographic? (y/n) ")
                 print("\n")
+                while choice != 'y' and choice != 'n':
+                    choice = input("Please enter 'y' (yes) or 'n' (no).")
                 if choice == 'n':
                     break
                 elif choice != 'y' and choice != 'n':
