@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
 
-
 # functions to create bar graphs per demographic
 def create_bargraph_gender(dataframe, country_list):
     # Dictionary that relates country to country code
@@ -32,8 +31,6 @@ def create_bargraph_gender(dataframe, country_list):
         female_list = [country, 'Female', Female]
         graph_list.append(female_list)
     
-    
-    
     # set up graph
     fig = plt.figure()
     ax = fig.add_subplot(111)
@@ -41,7 +38,6 @@ def create_bargraph_gender(dataframe, country_list):
     gender = ['Male', 'Female']
     x = len(gender)
     width = (1 - space) / x # width of bars
-    
     
     # graph each gender
     for i, gend in enumerate(gender):
@@ -70,13 +66,7 @@ def create_bargraph_gender(dataframe, country_list):
     plt.title('Gender Distribution for Immigrants to the Netherlands')
     ax.legend(gender)
 
-            
-        
-        
-        
-        
-        
-        
+# function for demographic age
 def create_bargraph_age(dataframe, country_list):
     # Dictionary that relates country to country code
     country_dict = {'Total Immigration':'T001175','Syria':'G008753','Iran':'G008634',\
@@ -125,7 +115,6 @@ def create_bargraph_age(dataframe, country_list):
                 elif year['LeeftijdOp31December'] == 60900:
                     younger90 += year['Immigratie_1']
          
-    
         # set layout for graph    
         x = list(range(9))
         data = [younger10, younger20, younger30, younger40, younger50, younger60, younger70, \
@@ -143,22 +132,14 @@ def create_bargraph_age(dataframe, country_list):
     plt.xlabel('Age Distribution (in years) for Immigrants to the Netherlands')
     plt.show()
     
-
-            
-        
-        
-        
-        
-        
-        
+# function for demographic marital status  
 def create_bargraph_mar_status(dataframe, country_list):
     # Dictionary that relates country to country code
     country_dict = {'Total Immigration':'T001175','Syria':'G008753','Iran':'G008634',\
                         'China':'G008575','Turkey':'G008766','Afghanistan':'G008533','Irak':'G008633',\
                         'Eritrea':'G008597','Sudan':'G008746','Bosnia and Herzegovina':'G008559',\
                         'Romania':'G008723'}
-        
-    
+
     n = len(country_list)
     
     # storage for data on all countries
@@ -194,8 +175,7 @@ def create_bargraph_mar_status(dataframe, country_list):
         data_married.append(married)
         data_widowed.append(widowed)
         data_divorced.append(divorced)
-    
-    
+
     # set up graph delimiters
     x = list(range(n))
     labels = ["Unmarried", "Married", "Widowed", "Divorced"]
