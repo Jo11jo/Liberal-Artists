@@ -194,8 +194,6 @@ while True:
                     choice = input("Please enter 'y' (yes) or 'n' (no).")
                 if choice == 'n':
                     break
-                elif choice != 'y' and choice != 'n':
-                    print("This answer can't be recognized. Enter another country or just hit enter.")
             else:
                 # break if all countries possible have been chosen
                 break
@@ -229,8 +227,6 @@ while True:
                     choice = input("Please enter 'y' (yes) or 'n' (no).")
                 if choice == 'n':
                     break
-                elif choice != 'y' and choice != 'n':
-                    print("This answer can't be recognized. Enter another demographic or just hit enter.")
             else:
                 break
 
