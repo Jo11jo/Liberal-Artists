@@ -3,10 +3,14 @@ import data_handling as dh
 import create_line_graph as lg
 import create_bar_graph as bg
 
+# Importing all relevant sets using the data_handling module
 cbsdata_NL = dh.load_data_asylum_NL("Asylum NL.csv")
 cbsdata_int = dh.load_data_asylum_int("Asylum International.csv")
+gender_df = dh.load_data_gender('data_gender.csv')
+age_df = dh.load_data_age('data_age.csv')
+mar_stat_df = dh.load_data_mar_status('data_mar_status.csv')
 
-
+# Initiates the main loop which keeps the user interface running
 while True:  
     choice = input("""Welcome! What do you want to do?
     1\tView asylum requests (per country of origin) to the Netherlands over time.
@@ -15,13 +19,14 @@ while True:
     4\tExit program.
     """)
  
-# Choice Asylum requests over time
+# Choice 1: View asylum requests (per country of origin) to the Netherlands over time
     if choice == "1":
         all_countries = ['Total Requests','Syria','Iran','China','Turkey',\
                          'Afghanistan','Irak','Eritrea','Sudan','Bosnia and Herzegovina','Romania']
         all_countries.sort()
         countries = [] 
 
+        # Creates a loop which allows to user to select countries
         while True:
             print("Which countries would you like to view? Please choose one from this list:")
             for country in all_countries:
@@ -41,6 +46,8 @@ while True:
             for country in countries:
                 print(country)
             countries.sort()
+            
+            # Checks if the user has selected all countries
             if countries != all_countries:
                 choice = input("Would you like to add another country? (y/n) ")
                 print("\n")
@@ -51,6 +58,7 @@ while True:
             else:
                 break
         
+        # Allows the user to choose the time period
         while True:
             print("What time period would you like to view? Please enter a start and end year (between 1975 and 2018).")
             while True:
@@ -79,20 +87,22 @@ while True:
                 continue
             break            
         
+        # Graphs the selected countries over the selected time period using the create_line_graph module
         graph = lg.line_graph_NL(cbsdata_NL,start_year,end_year,countries)
         plt.show()
         
         
         
         
-# Coice EU comparison        
-    elif choice == "2":
-        
-        countries = [] 
+# Choice 2: View asylum requests (per country of destination) over time       
+    elif choice == "2":        
         all_countries = ['The Netherlands','EU Total','Belgium','Denmark','Germany','France',\
                          'Greece','Hungary','Italy','Czech Republic','United Kingdom','Norway',\
                          'Canada','United States of America']
         all_countries.sort()
+        countries = [] 
+        
+        # Creates a loop which allows to user to select countries
         while True:
             print("Which countries would you like to view? Please choose one from this list:")
             for country in all_countries:
@@ -112,6 +122,8 @@ while True:
             for country in countries:
                 print(country)
             countries.sort()
+
+            # Checks if the user has selected all countries
             if countries != all_countries:
                 choice = input("Would you like to add another country? (y/n) ")
                 print("\n")
@@ -122,6 +134,7 @@ while True:
             else:
                 break
         
+        # Allows the user to choose the time period
         while True:
             print("What time period would you like to view? Please enter a start and end year (between 2008 and 2016).")
             while True:
@@ -149,14 +162,15 @@ while True:
                 print("\n")
                 continue
             break            
-        
+
+        # Graphs the selected countries over the selected time period using the create_line_graph module
         graph = lg.line_graph_int(cbsdata_int,start_year,end_year,countries)
         plt.show()     
           
           
           
   
-  # choice Demographics across countries
+  # Choice 3: View migrating population demographics (to NL) per country of origin (gender, age, marital status)
     elif choice == "3":
         # list of countries that will later be handed into the function defining desired countries to compare
         countries = [] 
@@ -166,7 +180,7 @@ while True:
         all_countries.sort()
 
         while True:
-            #ask user input which countries
+            # asks user to input which countries
             print("Which countries would you like to compare? Please choose one from this list:")
             for country in all_countries:
                 print(country)
@@ -174,7 +188,7 @@ while True:
                 country_choice = input()
                 if country_choice in all_countries:
                     if country_choice not in countries:
-                        # if country possible to choose and hasn't been chosen yet
+                        # checks if country is possible to choose and hasn't been chosen yet
                         countries.append(country_choice)
                         break
                     else:
@@ -182,6 +196,7 @@ while True:
                 else:
                     print("You did not enter a country from the list, please try again.")
             print("\n")
+            
             #display chosen countries, add more? ask user input
             print("Current countries:")
             for country in countries:
@@ -198,7 +213,7 @@ while True:
                 # break if all countries possible have been chosen
                 break
 
-        #repeat process with possibilities of demographics to compare across countries
+        # repeat process with possibilities of demographics to compare across countries
         groups = []
         all_groups = ['Age', 'Gender', 'Marital status']
         while True:
@@ -230,31 +245,21 @@ while True:
             else:
                 break
 
-
-        # plot graph for each demographics to compare
+        # plot graph for each demographics to compare using the create_bar_graph module
         if 'Gender' in groups:
-            #get according dataset
-            gender_df = dh.load_data_gender('data_gender.csv')
             #plt graph along the list of countries chosen
             bg.create_bargraph_gender(gender_df, countries)
             plt.show()
 
         if 'Age' in groups:
-            age_df = dh.load_data_age('data_age.csv')
             bg.create_bargraph_age(age_df, countries)
             plt.show()
 
         if 'Marital status' in groups:
-            mar_stat_df = dh.load_data_mar_status('data_mar_status.csv')
             bg.create_bargraph_mar_status(mar_stat_df, countries)
-            plt.show()
-
-       
-        
-        
-        
- 
-# choice end program
+            plt.show()   
+         
+    # Choice 4: Exit program
     elif choice == "4":
         print("Thank you for using this program.")
         break
