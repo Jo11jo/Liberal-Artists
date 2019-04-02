@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 def create_bargraph_gender(dataframe, country_list):
     # Dictionary that relates country to country code
-    country_dict = {'Total Numbers':'T001175','Syria':'G008753','Iran':'G008634',\
+    country_dict = {'Total Immigration':'T001175','Syria':'G008753','Iran':'G008634',\
                     'China':'G008575','Turkey':'G008766','Afghanistan':'G008533','Irak':'G008633',\
                     'Eritrea':'G008597','Sudan':'G008746','Bosnia and Herzegovina':'G008559',\
                     'Romania':'G008723'}
@@ -90,7 +90,7 @@ def create_bargraph_gender(dataframe, country_list):
         
 def create_bargraph_age(dataframe, country_list):
     # Dictionary that relates country to country code
-    country_dict = {'Total Numbers':'T001175','Syria':'G008753','Iran':'G008634',\
+    country_dict = {'Total Immigration':'T001175','Syria':'G008753','Iran':'G008634',\
                         'China':'G008575','Turkey':'G008766','Afghanistan':'G008533','Irak':'G008633',\
                         'Eritrea':'G008597','Sudan':'G008746','Bosnia and Herzegovina':'G008559',\
                         'Romania':'G008723'}
@@ -163,7 +163,7 @@ def create_bargraph_age(dataframe, country_list):
         
 def create_bargraph_mar_status(dataframe, country_list):
     # Dictionary that relates country to country code
-    country_dict = {'Total Numbers':'T001175','Syria':'G008753','Iran':'G008634',\
+    country_dict = {'Total Immigration':'T001175','Syria':'G008753','Iran':'G008634',\
                         'China':'G008575','Turkey':'G008766','Afghanistan':'G008533','Irak':'G008633',\
                         'Eritrea':'G008597','Sudan':'G008746','Bosnia and Herzegovina':'G008559',\
                         'Romania':'G008723'}
