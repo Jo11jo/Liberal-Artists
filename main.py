@@ -197,7 +197,7 @@ while True:
 
         #repeat process with possibilities of demographics to compare across countries
         groups = []
-        all_groups = ['gender', 'age', 'marital status']
+        all_groups = ['Age', 'Gender', 'Marital status']
         while True:
             print("These are the demographics you can choose to compare:")
             for group in all_groups:
@@ -223,7 +223,7 @@ while True:
                 if choice == 'n':
                     break
                 elif choice != 'y' and choice != 'n':
-                    print("This answer can't be recognized. Enter another country or just hit enter.")
+                    print("This answer can't be recognized. Enter another demographic or just hit enter.")
             else:
                 break
 
