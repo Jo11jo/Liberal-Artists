@@ -9,7 +9,7 @@ def line_graph_NL(cbsdata,start_year,end_year,countries):
                     'Romania':'NAT9417'}
     
     for country in countries:     
-        # Creates list of years and a copy
+        # Creates list including all years and a copy
         years = []
         trimmed_years = []
         i = int(start_year)
@@ -22,7 +22,7 @@ def line_graph_NL(cbsdata,start_year,end_year,countries):
         country_data = cbsdata[cbsdata['Nationaliteit']==country_dict[country]]
     
         # Creates a list of asylum requests per year for that country. If there is
-        # no data available, the data point is removed. 
+        # no data available, the data point is not taken into accout (year removed from list). 
         asylum_requests = []
         for i in years:
             try:
@@ -54,7 +54,7 @@ def line_graph_int(cbsdata,start_year,end_year,countries):
                     'United States of America':'L008778'}
     
     for country in countries:     
-        # Creates list of years and a copy
+        # Creates list including all years and a copy
         years = []
         trimmed_years = []
         i = int(start_year)
@@ -67,7 +67,7 @@ def line_graph_int(cbsdata,start_year,end_year,countries):
         country_data = cbsdata[cbsdata['Landen']==country_dict[country]]
     
         # Creates a list of asylum requests per year for that country. If there is
-        # no data available, the data point is removed. 
+        # no data available, the data is not taken into accout (year removed from list). 
         asylum_requests = []
         for i in years:
             try:
