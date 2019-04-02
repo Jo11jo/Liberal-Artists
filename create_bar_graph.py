@@ -1,30 +1,22 @@
-
-
 import matplotlib.pyplot as plt
 
 
+# functions to create bar graphs per demographic
 def create_bargraph_gender(dataframe, country_list):
     # Dictionary that relates country to country code
     country_dict = {'Total Immigration':'T001175','Syria':'G008753','Iran':'G008634',\
                     'China':'G008575','Turkey':'G008766','Afghanistan':'G008533','Irak':'G008633',\
                     'Eritrea':'G008597','Sudan':'G008746','Bosnia and Herzegovina':'G008559',\
                     'Romania':'G008723'}
-    
+    # variables used for plotting later
     n = len(country_list)
-    
-    # list that later contains all important info to be plotted
-    graph_list = []
-    
-        
-    
+    graph_list = []      
     # get gender distribution per country
     for country in country_list:
         # choose data only for specific country
         df_chosen = dataframe[dataframe['Geboorteland'] == country_dict[country]]
         Male = 0
         Female = 0
-    
-        
         # sum immigration numbers from all years, assign to gender variables
         for index, year in df_chosen.iterrows():
             if year['Geboorteland'] == country_dict[country]:
@@ -42,22 +34,19 @@ def create_bargraph_gender(dataframe, country_list):
     
     
     
-    # set up info for graph
+    # set up graph
     fig = plt.figure()
     ax = fig.add_subplot(111)
-    
-    # space between clusters
-    space = 0.3
-    
+    space = 0.3 # space between clusters
     gender = ['Male', 'Female']
     x = len(gender)
-    width = (1 - space) / x
+    width = (1 - space) / x # width of bars
     
     
     # graph each gender
     for i, gend in enumerate(gender):
-        numb = [] # y axis
-        pos = [] # x axis
+        numb = [] # y axis values
+        pos = [] # x axis vlaues
         
         #get list with numbers for each gender individually 
         for z in range(n*2):
@@ -94,15 +83,16 @@ def create_bargraph_age(dataframe, country_list):
                         'China':'G008575','Turkey':'G008766','Afghanistan':'G008533','Irak':'G008633',\
                         'Eritrea':'G008597','Sudan':'G008746','Bosnia and Herzegovina':'G008559',\
                         'Romania':'G008723'}
-    
+    # set up basics
     i = 0    
     n = len(country_list)
     fig = plt.figure()
     # plot each country individually
     for country in country_list:
         i +=1
-        # choose data only for specific country
+        # choose data only for specific country 
         df_chosen = dataframe[dataframe['Geboorteland'] == country_dict[country]]
+        # variables for age groups
         younger10 = 0
         younger20 = 0
         younger30 = 0
@@ -113,7 +103,7 @@ def create_bargraph_age(dataframe, country_list):
         younger80 = 0
         younger90 = 0
         
-        # sum immigration numbers from all years
+        # sum immigration numbers from all years and add to age groups
         for index, year in df_chosen.iterrows():
             if year['Geboorteland'] == country_dict[country]:
                 if year['LeeftijdOp31December'] == 60100:
@@ -181,12 +171,13 @@ def create_bargraph_mar_status(dataframe, country_list):
     for country in country_list:
         # choose data only for specific country
         df_chosen = dataframe[dataframe['Geboorteland'] == country_dict[country]]
+        # variables for eahc marital status
         unmarried = 0
         married = 0
         widowed = 0
         divorced = 0
         
-        # sum immigration numbers from all years
+        # sum immigration numbers from all years and add to corresponding variable
         for index, year in df_chosen.iterrows():
             if year['Geboorteland'] == country_dict[country]:
                 if year['BurgerlijkeStaat'] == 1010:
@@ -198,7 +189,7 @@ def create_bargraph_mar_status(dataframe, country_list):
                 elif year['BurgerlijkeStaat'] == 1080:
                     divorced += year['Immigratie_1']
       
-        # add data for country to list
+        # add data for country to list as items to be called by index later
         data_unmarried.append(unmarried) 
         data_married.append(married)
         data_widowed.append(widowed)
@@ -209,12 +200,12 @@ def create_bargraph_mar_status(dataframe, country_list):
     x = list(range(n))
     labels = ["Unmarried", "Married", "Widowed", "Divorced"]
     
-    # graph each marital status as stacken on top of another
+    # graph each marital status as stacks on top of another
     p1 = plt.bar(x, data_unmarried)
     p2 = plt.bar(x, data_married, bottom=data_unmarried)
-    bottom = [sum(x) for x in zip(data_unmarried, data_married)]
+    bottom = [sum(x) for x in zip(data_unmarried, data_married)] # starting point for next bar stack is top of old one
     p3 = plt.bar(x, data_widowed, bottom=bottom)
-    bottom = [sum(x) for x in zip(data_unmarried, data_married, data_widowed)]
+    bottom = [sum(x) for x in zip(data_unmarried, data_married, data_widowed)]# starting point for next bar stack is top of old one
     p4 = plt.bar(x, data_divorced, bottom=bottom)
     
     # adjust graph display
