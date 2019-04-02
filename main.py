@@ -33,7 +33,7 @@ while True:
                         countries.append(country_choice)
                         break
                     else:
-                        print("That country is already in the list.")
+                        print("That country is already in the list, please try again.")
                 else:
                     print("You did not enter a country from the list, please try again.")
             print("\n")
@@ -104,7 +104,7 @@ while True:
                         countries.append(country_choice)
                         break
                     else:
-                        print("That country is already in the list.")
+                        print("That country is already in the list, please try again.")
                 else:
                     print("You did not enter a country from the list, please try again.")
             print("\n")
