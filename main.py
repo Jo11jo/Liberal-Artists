@@ -11,7 +11,7 @@ while True:
     choice = input("""Welcome! What do you want to do?
     1\tView asylum requests (per country of origin) to the Netherlands over time.
     2\tView asylum requests (per country of destination) over time.
-    3\tView migrating population demographics (to NL) per country of origin (gender, age, etc.).
+    3\tView migrating population demographics (to NL) per country of origin (gender, age, marital status).
     4\tExit program.
     """)
  
