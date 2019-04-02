@@ -206,7 +206,7 @@ while True:
             for group in all_groups:
                 print(group)
             while True:
-                choice = input("Please indicate one demographic you want to compare across countries \n")
+                choice = input("Please indicate a (or another) demographic you want to compare across countries \n")
                 if choice in all_groups:
                     if choice not in groups:
                         groups.append(choice)
