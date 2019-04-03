@@ -16,19 +16,22 @@ def create_bargraph_gender(dataframe, country_list):
         df_chosen = dataframe[dataframe['Geboorteland'] == country_dict[country]]
         Male = 0
         Female = 0
+        total = 0
         # sum immigration numbers from all years, assign to gender variables
         for index, year in df_chosen.iterrows():
             if year['Geboorteland'] == country_dict[country]:
                 if year['Geslacht'] == 3000:
                     Male += year['Immigratie_1']
+                    total += year['Immigratie_1']
                 elif year['Geslacht'] == 4000:
                     Female += year['Immigratie_1']
+                    total += year['Immigratie_1']
         
         # nest lists into graph_list that can be graphed later
-        # one nested item includes country's name, gender and number of immigrants
-        male_list = [country, 'Male', Male]
+        # one nested item includes country's name, gender and percentage of immigrants
+        male_list = [country, 'Male', ((Male/total)*100)]
         graph_list.append(male_list)
-        female_list = [country, 'Female', Female]
+        female_list = [country, 'Female', ((Female/total)*100)]
         graph_list.append(female_list)
     
     # set up graph
@@ -63,7 +66,7 @@ def create_bargraph_gender(dataframe, country_list):
     plt.setp(plt.xticks()[1], rotation=90)
     ax.set_ylabel("Number of Immigrants")
     ax.set_xlabel("Country")
-    plt.title('Gender Distribution of Immigrants to the Netherlands')
+    plt.title('Gender Distribution of Immigrants to the Netherlands (in %)')
     ax.legend(gender)
 
 # function for demographic age
@@ -92,35 +95,50 @@ def create_bargraph_age(dataframe, country_list):
         younger70 = 0
         younger80 = 0
         younger90 = 0
+        total = 0
         
         # sum immigration numbers from all years and add to age groups
         for index, year in df_chosen.iterrows():
             if year['Geboorteland'] == country_dict[country]:
                 if year['LeeftijdOp31December'] == 60100:
                     younger10 += year['Immigratie_1']
+                    total += year['Immigratie_1']
                 elif year['LeeftijdOp31December'] == 60200:
                     younger20 += year['Immigratie_1']
+                    total += year['Immigratie_1']
                 elif year['LeeftijdOp31December'] == 60300:
                     younger30 += year['Immigratie_1']
+                    total += year['Immigratie_1']
                 elif year['LeeftijdOp31December'] == 60400:
                     younger40 += year['Immigratie_1']
+                    total += year['Immigratie_1']
                 elif year['LeeftijdOp31December'] == 60500:
                     younger50 += year['Immigratie_1']
+                    total += year['Immigratie_1']
                 elif year['LeeftijdOp31December'] == 60600:
                     younger60 += year['Immigratie_1']
+                    total += year['Immigratie_1']
                 elif year['LeeftijdOp31December'] == 60700:
                     younger70 += year['Immigratie_1']
+                    total += year['Immigratie_1']
                 elif year['LeeftijdOp31December'] == 60800:
                     younger80 += year['Immigratie_1']
+                    total += year['Immigratie_1']
                 elif year['LeeftijdOp31December'] == 60900:
                     younger90 += year['Immigratie_1']
+                    total += year['Immigratie_1']
          
         # set layout for graph    
         x = list(range(9))
         data = [younger10, younger20, younger30, younger40, younger50, younger60, younger70, \
-                younger80, younger90]       
+                younger80, younger90]    
         labels = ['0 - 10', '10 - 20', '20 - 30', '30 - 40', '40 - 50',\
                   '50 - 60', '60 - 70', '70 - 80', '80 - 90']
+        # convert data into percentages
+        v = 0
+        for number in data:
+            data[v] = (number/total)*100
+            v += 1 
         
         fig.add_subplot(n, 1, i)
         plt.bar(x, data, label=country)
@@ -129,7 +147,7 @@ def create_bargraph_age(dataframe, country_list):
     # plot all next to each other
     plt.subplots_adjust(bottom=0, top=2, hspace=0)
     plt.xticks(x, labels, rotation='vertical')
-    plt.xlabel('Age Distribution (in years) of Immigrants to the Netherlands')
+    plt.xlabel('Age Distribution (%) of Immigrants to the Netherlands')
     plt.show()
     
 # function for demographic marital status  
@@ -157,25 +175,30 @@ def create_bargraph_mar_status(dataframe, country_list):
         married = 0
         widowed = 0
         divorced = 0
+        total = 0
         
         # sum immigration numbers from all years and add to corresponding variable
         for index, year in df_chosen.iterrows():
             if year['Geboorteland'] == country_dict[country]:
                 if year['BurgerlijkeStaat'] == 1010:
                     unmarried += year['Immigratie_1']
+                    total += year['Immigratie_1']
                 elif year['BurgerlijkeStaat'] == 1020:
                     married += year['Immigratie_1']
+                    total += year['Immigratie_1']
                 elif year['BurgerlijkeStaat'] == 1050:
                     widowed += year['Immigratie_1']
+                    total += year['Immigratie_1']
                 elif year['BurgerlijkeStaat'] == 1080:
                     divorced += year['Immigratie_1']
+                    total += year['Immigratie_1']
       
-        # add data for country to list as items to be called by index later
-        data_unmarried.append(unmarried) 
-        data_married.append(married)
-        data_widowed.append(widowed)
-        data_divorced.append(divorced)
-
+        # add data in percent for country to list as items to be called by index later
+        data_unmarried.append((unmarried/total)*100) 
+        data_married.append((married/total)*100)
+        data_widowed.append((widowed/total)*100)
+        data_divorced.append((divorced/total)*100)
+        
     # set up graph delimiters
     x = list(range(n))
     labels = ["Unmarried", "Married", "Widowed", "Divorced"]
@@ -191,5 +214,5 @@ def create_bargraph_mar_status(dataframe, country_list):
     # adjust graph display
     plt.xticks(x, country_list, rotation='vertical')
     plt.legend(labels)
-    plt.title('Distribution of Marital Status of Immigrants to the Netherlands')
+    plt.title('Distribution of Marital Status of Immigrants to the Netherlands (in %)')
     plt.show()
