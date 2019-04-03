@@ -64,7 +64,6 @@ def create_bargraph_gender(dataframe, country_list):
     ax.set_xticks(j_list)
     ax.set_xticklabels(country_list)
     plt.setp(plt.xticks()[1], rotation=90)
-    ax.set_xlabel("Country")
     plt.title('Gender Distribution of Immigrants to the Netherlands (in %)')
     ax.legend(gender)
 
