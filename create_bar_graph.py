@@ -64,7 +64,6 @@ def create_bargraph_gender(dataframe, country_list):
     ax.set_xticks(j_list)
     ax.set_xticklabels(country_list)
     plt.setp(plt.xticks()[1], rotation=90)
-    ax.set_ylabel("Number of Immigrants")
     ax.set_xlabel("Country")
     plt.title('Gender Distribution of Immigrants to the Netherlands (in %)')
     ax.legend(gender)
@@ -147,7 +146,8 @@ def create_bargraph_age(dataframe, country_list):
     # plot all next to each other
     plt.subplots_adjust(bottom=0, top=2, hspace=0)
     plt.xticks(x, labels, rotation='vertical')
-    plt.xlabel('Age Distribution (%) of Immigrants to the Netherlands')
+    plt.xlabel('Age Distribution (in 
+               %) of Immigrants to the Netherlands')
     plt.show()
     
 # function for demographic marital status  
