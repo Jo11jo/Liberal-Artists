@@ -34,7 +34,9 @@ def line_graph_NL(cbsdata,start_year,end_year,countries):
         # Plot the asylum requests over time for the country
         plt.plot(trimmed_years,asylum_requests,label=country)
     
+    # sets the axes labels and ticks
     plt.xlabel('Years')
+    # forces all xticks to take integer values (since they are years)
     xint = []
     locs, labels = plt.xticks()
     for each in locs:
@@ -80,7 +82,9 @@ def line_graph_int(cbsdata,start_year,end_year,countries):
         # Plot the asylum requests over time for the country
         plt.plot(trimmed_years,asylum_requests,label=country)
     
+    # sets the axes labels and ticks
     plt.xlabel('Years')
+    # forces all xticks to take integer values (since they are years)
     xint = []
     locs, labels = plt.xticks()
     for each in locs:
