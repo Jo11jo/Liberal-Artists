@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 
+# function to graph asylum requests to the Netherlands from different countries of origin over time
 def line_graph_NL(cbsdata,start_year,end_year,countries):
     
     # Dictionary that relates country to country code
@@ -43,7 +44,8 @@ def line_graph_NL(cbsdata,start_year,end_year,countries):
     plt.ylabel('Asylum Requests')
     plt.title('Asylum Requests to the Netherlands')
     plt.legend()
-    
+
+# function to graph asylum requests to different countries over time
 def line_graph_int(cbsdata,start_year,end_year,countries):
     
     # Dictionary that relates country to country code
