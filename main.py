@@ -90,10 +90,7 @@ while True:
         # Graphs the selected countries over the selected time period using the create_line_graph module
         graph = lg.line_graph_NL(cbsdata_NL,start_year,end_year,countries)
         plt.show()
-        
-        
-        
-        
+               
 # Choice 2: View asylum requests (per country of destination) over time       
     elif choice == "2":        
         all_countries = ['The Netherlands','EU Total','Belgium','Denmark','Germany','France',\
@@ -166,10 +163,7 @@ while True:
         # Graphs the selected countries over the selected time period using the create_line_graph module
         graph = lg.line_graph_int(cbsdata_int,start_year,end_year,countries)
         plt.show()     
-          
-          
-          
-  
+ 
   # Choice 3: View migrating population demographics (to NL) per country of origin (gender, age, marital status)
     elif choice == "3":
         # list of countries that will later be handed into the function defining desired countries to compare
