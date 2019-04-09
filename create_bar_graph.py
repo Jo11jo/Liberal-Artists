@@ -145,8 +145,7 @@ def create_bargraph_age(dataframe, country_list):
     # plot all next to each other
     plt.subplots_adjust(bottom=0, top=2, hspace=0)
     plt.xticks(x, labels, rotation='vertical')
-    plt.xlabel('Age Distribution (in 
-               %) of Immigrants to the Netherlands')
+    plt.xlabel('Age Distribution (in %) of Immigrants to the Netherlands')
     plt.show()
     
 # function for demographic marital status  
