@@ -26,14 +26,16 @@ while True:
         all_countries.sort()
         countries = [] 
 
-        # Creates a loop which allows to user to select countries
+        # Creates a loop which allows user to select countries
         while True:
             print("Which countries would you like to view? Please choose one from this list:")
             for country in all_countries:
                 print(country)
             while True:
                 country_choice = input()
+                #country should be a possibility
                 if country_choice in all_countries:
+                    # country should not have been chosen before
                     if country_choice not in countries:
                         countries.append(country_choice)
                         break
@@ -62,11 +64,13 @@ while True:
         while True:
             print("What time period would you like to view? Please enter a start and end year (between 1975 and 2018).")
             while True:
+                #make sure the indicated year is integer form
                 try:
                     start_year = int(input("Start year: "))
                     break
                 except:
                     print("You did not enter an integer!")
+             # year should be in the timespan of available data
             if start_year < 1975 or start_year > 2017:
                 print("You entered an invalid start year, please try again.")
                 print("\n")
@@ -106,7 +110,9 @@ while True:
                 print(country)
             while True:
                 country_choice = input()
+                #country should be a possibility
                 if country_choice in all_countries:
+                    # country should not have been chosen before
                     if country_choice not in countries:
                         countries.append(country_choice)
                         break
@@ -135,11 +141,13 @@ while True:
         while True:
             print("What time period would you like to view? Please enter a start and end year (between 2008 and 2016).")
             while True:
+                #indicated year must be integer
                 try:
                     start_year = int(input("Start year: "))
                     break
                 except:
                     print("You did not enter an integer!")
+            # indicated year must be in timespan of data 
             if start_year < 2008 or start_year > 2015:
                 print("You entered an invalid start year, please try again.")
                 print("\n")
@@ -180,7 +188,9 @@ while True:
                 print(country)
             while True:
                 country_choice = input()
+                #country should be a possibility
                 if country_choice in all_countries:
+                    # country should not have been chosen before
                     if country_choice not in countries:
                         # checks if country is possible to choose and hasn't been chosen yet
                         countries.append(country_choice)
@@ -216,7 +226,9 @@ while True:
                 print(group)
             while True:
                 choice = input("Please indicate a (or another) demographic you want to compare across countries \n")
+                # demographic must be possible
                 if choice in all_groups:
+                    # demographic has not been chosen before
                     if choice not in groups:
                         groups.append(choice)
                         break
@@ -257,5 +269,6 @@ while True:
     elif choice == "4":
         print("Thank you for using this program.")
         break
+    # invalid input
     else:
         print("Choice not recognized. Try again.")    
